@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <title>Page name</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+          crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+            crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <script type="text/javascript" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+    <style type="text/css">
+        table{
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+<div th:replace="layout :: navbar"></div>
+<img src="../back_home.jpg" style="position: absolute; top:0; left:0; width:100%; height:100%; z-index:-1; opacity: 50%">
+<div class="container mt-4">
+    <h4 style="text-align: center;">Modifier la formation</h4>
+    <form style="max-width: 500px;margin: auto;margin-bottom: 70px;" th:action="@{/training/update}" method="POST">
+        <input type="hidden" name="training_id" th:value="${training.training_id}"/>
+        <div class="mb-3">
+            <label for="nom_training" class="form-label">Nom</label>
+            <input name="nom_training" type="text" class="form-control" th:value="${training.nom_training}" id="nom_training" aria-describedby="nom_training">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Enregister les changements</button><br/>
+        <a href="../training" class="">Go back</a>
+    </form>
+</div>
+</body>
+</html>
